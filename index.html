@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vin The Trader — Strategy Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: #0c0c0c;
+  font-family: 'Barlow', sans-serif;
+  color: #e8e4dc;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 780px;
+  background: #111;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+/* ── HEADER ── */
+.top {
+  padding: 36px 40px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.top-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: #C9A84C;
+}
+.top-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  color: #fff;
+  margin-top: 4px;
+}
+.top-name span { color: #C9A84C; }
+.top-right {
+  text-align: right;
+}
+.top-pair {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #00D4FF;
+}
+.top-tf {
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 2px;
+  margin-top: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ── GOLD DIVIDER ── */
+.gold-bar {
+  height: 2px;
+  background: linear-gradient(90deg, #C9A84C 0%, rgba(201,168,76,0.2) 60%, transparent 100%);
+}
+
+/* ── THREE GATES ── */
+.gates {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gate {
+  padding: 28px 28px 24px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+}
+.gate:last-child { border-right: none; }
+
+.gate-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.gate-accent.g1 { background: #C9A84C; }
+.gate-accent.g2 { background: #00D4FF; }
+.gate-accent.g3 { background: #00FF88; }
+
+.gate-step {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.g1 .gate-step { color: #C9A84C; }
+.g2 .gate-step { color: #00D4FF; }
+.g3 .gate-step { color: #00FF88; }
+
+.gate-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.gate-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* diagram box */
+.diagram {
+  background: #0a0a0a;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 12px;
+  margin-bottom: 18px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* rules */
+.rules { display: flex; flex-direction: column; gap: 9px; }
+.rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #a09888;
+  line-height: 1.45;
+}
+.rule-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.g1 .rule-dot { background: #C9A84C; }
+.g2 .rule-dot { background: #00D4FF; }
+.g3 .rule-dot { background: #00FF88; }
+.rule b { color: #e8e4dc; font-weight: 600; }
+
+/* ── CONNECTOR ── */
+.arrow-between {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #111;
+  border: 1px solid rgba(201,168,76,0.3);
+  width: 26px; height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #C9A84C;
+}
+
+/* ── OUTCOME STRIP ── */
+.outcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.outcome-side {
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.outcome-side.bull { border-right: 1px solid rgba(255,255,255,0.06); }
+.outcome-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  line-height: 1;
+}
+.outcome-side.bull .outcome-icon { color: #00FF88; }
+.outcome-side.bear .outcome-icon { color: #FF4444; }
+.outcome-text {}
+.outcome-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.outcome-side.bull .outcome-label { color: #00FF88; }
+.outcome-side.bear .outcome-label { color: #FF4444; }
+.outcome-desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.4;
+}
+.outcome-desc b { color: #e8e4dc; font-weight: 600; }
+
+/* ── RISK ROW ── */
+.risk-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: #0e0e0e;
+}
+.risk-cell {
+  padding: 16px 18px;
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+.risk-cell:last-child { border-right: none; }
+.risk-key {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.risk-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #e8e4dc;
+}
+.risk-val.gold { color: #C9A84C; }
+.risk-val.green { color: #00FF88; }
+.risk-val.red { color: #FF4444; }
+.risk-val.cyan { color: #00D4FF; }
+
+/* ── FOOTER ── */
+.footer {
+  padding: 14px 40px;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0e0e0e;
+}
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  color: #C9A84C;
+}
+.footer-rule {
+  font-size: 11px;
+  color: #444;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- HEADER -->
+  <div class="top">
+    <div>
+      <div class="top-title">Strategy Infographic</div>
+      <div class="top-name"><span>HTF</span> Liquidity Sweep</div>
+    </div>
+    <div class="top-right">
+      <div class="top-pair">NAS100 · MNQ</div>
+      <div class="top-tf">Bias: 4H · 15M &nbsp;|&nbsp; Execution: 1M</div>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <!-- THREE GATES -->
+  <div class="gates">
+
+    <!-- GATE 01 -->
+    <div class="gate g1" style="position:relative;">
+      <div class="gate-accent g1"></div>
+      <div class="gate-step">Gate 01 · Setup</div>
+      <div class="gate-title">HTF Liquidity<br>Sweep</div>
+      <div class="gate-subtitle">4H &amp; 15M Chart</div>
+
+      <div class="diagram">
+        <svg viewBox="0 0 200 68" width="100%" height="100%">
+          <!-- liq level -->
+          <line x1="0" y1="14" x2="200" y2="14" stroke="rgba(201,168,76,0.4)" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="2" y="10" fill="rgba(201,168,76,0.6)" font-size="6.5" font-family="Barlow Condensed,sans-serif" letter-spacing="1" font-weight="600">LIQUIDITY LEVEL</text>
+
+          <!-- uptrend candles -->
+          <rect x="8"  y="44" width="7" height="12" fill="rgba(0,255,136,0.55)" rx="1"/>
+          <line x1="11.5" y1="42" x2="11.5" y2="46" stroke="rgba(0,255,136,0.5)" stroke-width="1.5"/>
+          <rect x="20" y="36" width="7" height="14" fill="rgba(0,255,136,0.55)" rx="1"/>
+          <line x1="23.5" y1="32" x2="23.5" y2="38" stroke="rgba(0,255,136,0.5)" stroke-width="1.5"/>
+          <rect x="32" y="26" width="7" height="16" fill="rgba(0,255,136,0.55)" rx="1"/>
+          <line x1="35.5" y1="22" x2="35.5" y2="28" stroke="rgba(0,255,136,0.5)" stroke-width="1.5"/>
+
+          <!-- SWEEP candle -->
+          <rect x="48" y="20" width="8" height="12" fill="rgba(255,68,68,0.7)" rx="1"/>
+          <line x1="52" y1="4" x2="52" y2="22" stroke="rgba(255,68,68,0.9)" stroke-width="2"/>
+          <line x1="52" y1="32" x2="52" y2="38" stroke="rgba(255,68,68,0.5)" stroke-width="1.5"/>
+          <text x="42" y="3" fill="rgba(255,68,68,0.85)" font-size="6" font-family="Barlow Condensed,sans-serif" letter-spacing="1" font-weight="700">SWEEP</text>
+
+          <!-- reversal -->
+          <rect x="62" y="30" width="7" height="20" fill="rgba(255,68,68,0.6)" rx="1"/>
+          <rect x="74" y="38" width="7" height="22" fill="rgba(255,68,68,0.7)" rx="1"/>
+          <rect x="86" y="46" width="7" height="18" fill="rgba(255,68,68,0.75)" rx="1"/>
+
+          <!-- arrow -->
+          <path d="M 100 40 Q 130 22 162 18" stroke="rgba(201,168,76,0.7)" stroke-width="1.5" fill="none"/>
+          <polygon points="159,14 166,18 160,22" fill="rgba(201,168,76,0.7)"/>
+          <text x="108" y="36" fill="rgba(201,168,76,0.8)" font-size="6.5" font-family="Barlow Condensed,sans-serif" letter-spacing="1" font-weight="600">REVERSAL</text>
+        </svg>
+      </div>
+
+      <div class="rules">
+        <div class="rule"><div class="rule-dot"></div><div>Significant high or low swept on <b>4H or 15M</b></div></div>
+        <div class="rule"><div class="rule-dot"></div><div>Level must be <b>unmitigated</b> &amp; caused a prior BOS</div></div>
+        <div class="rule"><div class="rule-dot"></div><div>Price sweeps, then <b>reverses sharply</b> — not breaks through</div></div>
+        <div class="rule"><div class="rule-dot"></div><div>This sets your <b>directional bias</b> for the session</div></div>
+      </div>
+
+      <!-- connector -->
+      <div class="arrow-between">→</div>
+    </div>
+
+    <!-- GATE 02 -->
+    <div class="gate g2" style="position:relative;">
+      <div class="gate-accent g2"></div>
+      <div class="gate-step">Gate 02 · Entry Model</div>
+      <div class="gate-title">Inverse Fair<br>Value Gap</div>
+      <div class="gate-subtitle">1M Chart · Bias Direction</div>
+
+      <div class="diagram">
+        <svg viewBox="0 0 200 68" width="100%" height="100%">
+          <!-- original FVG -->
+          <rect x="6" y="16" width="8" height="20" fill="rgba(255,68,68,0.5)" rx="1"/>
+          <rect x="18" y="24" width="8" height="22" fill="rgba(255,68,68,0.55)" rx="1"/>
+          <rect x="30" y="34" width="8" height="16" fill="rgba(255,68,68,0.5)" rx="1"/>
+          <!-- gap zone -->
+          <rect x="6" y="36" width="32" height="13" fill="rgba(255,68,68,0.07)" stroke="rgba(255,68,68,0.3)" stroke-width="0.75" stroke-dasharray="3,2"/>
+          <text x="8" y="45" fill="rgba(255,68,68,0.6)" font-size="5.5" font-family="Barlow Condensed,sans-serif" letter-spacing="1">FVG</text>
+
+          <!-- violation through (price pushes back up) -->
+          <rect x="48" y="36" width="8" height="20" fill="rgba(0,212,255,0.5)" rx="1"/>
+          <line x1="52" y1="30" x2="52" y2="38" stroke="rgba(0,212,255,0.5)" stroke-width="1.5"/>
+          <rect x="60" y="26" width="8" height="22" fill="rgba(0,212,255,0.6)" rx="1"/>
+          <line x1="64" y1="22" x2="64" y2="28" stroke="rgba(0,212,255,0.5)" stroke-width="1.5"/>
+
+          <text x="44" y="18" fill="rgba(0,212,255,0.7)" font-size="6" font-family="Barlow Condensed,sans-serif" letter-spacing="1">VIOLATED</text>
+          <!-- arrow -->
+          <line x1="76" y1="30" x2="88" y2="30" stroke="rgba(0,212,255,0.5)" stroke-width="1" stroke-dasharray="2,2"/>
+
+          <!-- IFVG zone -->
+          <rect x="88" y="36" width="104" height="13" fill="rgba(0,212,255,0.07)" stroke="rgba(0,212,255,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="91" y="45" fill="rgba(0,212,255,0.8)" font-size="5.5" font-family="Barlow Condensed,sans-serif" letter-spacing="1" font-weight="700">IFVG ZONE — WATCH HERE</text>
+
+          <!-- price retesting and bouncing -->
+          <rect x="92" y="22" width="7" height="20" fill="rgba(0,255,136,0.5)" rx="1"/>
+          <rect x="104" y="28" width="7" height="18" fill="rgba(255,68,68,0.35)" rx="1"/>
+          <rect x="116" y="34" width="7" height="14" fill="rgba(0,255,136,0.35)" rx="1"/>
+          <!-- bounce arrow -->
+          <path d="M 128 39 Q 148 24 170 14" stroke="rgba(0,255,136,0.7)" stroke-width="1.5" fill="none"/>
+          <polygon points="167,10 173,14 167,18" fill="rgba(0,255,136,0.7)"/>
+          <text x="148" y="28" fill="rgba(0,255,136,0.8)" font-size="6" font-family="Barlow Condensed,sans-serif" letter-spacing="1">BOUNCE</text>
+        </svg>
+      </div>
+
+      <div class="rules">
+        <div class="rule"><div class="rule-dot"></div><div>Drop to <b>1M chart</b> after HTF bias confirmed</div></div>
+        <div class="rule"><div class="rule-dot"></div><div>Find a FVG that was <b>traded back through</b> — now inverted</div></div>
+        <div class="rule"><div class="rule-dot"></div><div>Mark the zone boundaries — this is your <b>entry area</b></div></div>
+        <div class="rule"><div class="rule-dot"></div><div><b>Do not enter yet.</b> Wait for Gate 03 to confirm</div></div>
+      </div>
+
+      <!-- connector -->
+      <div class="arrow-between">→</div>
+    </div>
+
+    <!-- GATE 03 -->
+    <div class="gate g3">
+      <div class="gate-accent g3"></div>
+      <div class="gate-step">Gate 03 · Confirmation</div>
+      <div class="gate-title">Volumetric<br>Spectrogram</div>
+      <div class="gate-subtitle">Lower Oscillator · 1M</div>
+
+      <div class="diagram">
+        <svg viewBox="0 0 200 68" width="100%" height="100%">
+          <!-- oscillator base -->
+          <line x1="10" y1="54" x2="190" y2="54" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="10" y="62" fill="rgba(255,255,255,0.2)" font-size="6" font-family="Barlow Condensed,sans-serif" letter-spacing="1">LOWER OSCILLATOR</text>
+
+          <!-- neutral bars (grey) -->
+          <rect x="14" y="40" width="10" height="14" fill="rgba(255,255,255,0.1)" rx="1"/>
+          <rect x="28" y="36" width="10" height="18" fill="rgba(255,255,255,0.1)" rx="1"/>
+          <rect x="42" y="44" width="10" height="10" fill="rgba(255,255,255,0.1)" rx="1"/>
+
+          <!-- price entering IFVG zone indicator -->
+          <line x1="60" y1="4" x2="60" y2="54" stroke="rgba(0,212,255,0.3)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="62" y="10" fill="rgba(0,212,255,0.6)" font-size="6" font-family="Barlow Condensed,sans-serif" letter-spacing="1">IFVG</text>
+
+          <!-- green bars firing -->
+          <rect x="66" y="28" width="10" height="26" fill="rgba(0,255,136,0.35)" rx="1"/>
+          <rect x="80" y="14" width="10" height="40" fill="rgba(0,255,136,0.55)" rx="1" stroke="rgba(0,255,136,0.4)" stroke-width="1"/>
+          <rect x="94" y="20" width="10" height="34" fill="rgba(0,255,136,0.5)" rx="1"/>
+          <rect x="108" y="18" width="10" height="36" fill="rgba(0,255,136,0.6)" rx="1"/>
+
+          <!-- ENTER label -->
+          <text x="68" y="12" fill="rgba(0,255,136,0.9)" font-size="7.5" font-family="Bebas Neue,sans-serif" letter-spacing="2">GREEN = ENTER</text>
+
+          <!-- arrow up -->
+          <path d="M 130 44 L 160 20" stroke="rgba(0,255,136,0.6)" stroke-width="1.5" fill="none"/>
+          <polygon points="157,16 163,20 158,25" fill="rgba(0,255,136,0.6)"/>
+
+          <!-- candles rising -->
+          <rect x="140" y="36" width="7" height="16" fill="rgba(0,255,136,0.5)" rx="1"/>
+          <rect x="152" y="26" width="7" height="22" fill="rgba(0,255,136,0.6)" rx="1"/>
+          <rect x="164" y="16" width="7" height="28" fill="rgba(0,255,136,0.7)" rx="1"/>
+          <line x1="167.5" y1="12" x2="167.5" y2="18" stroke="rgba(0,255,136,0.6)" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <div class="rules">
+        <div class="rule"><div class="rule-dot"></div><div>Price must be <b>inside the IFVG zone</b></div></div>
+        <div class="rule"><div class="rule-dot"></div><div><b>Lower oscillator turns green</b> (bull) or red (bear)</div></div>
+        <div class="rule"><div class="rule-dot"></div><div>Hold for <b>at least 1 closed 1M candle</b> — no flash reads</div></div>
+        <div class="rule"><div class="rule-dot"></div><div>All 3 gates confirmed → <b>place your entry</b></div></div>
+      </div>
+
+    </div>
+  </div><!-- end gates -->
+
+  <!-- OUTCOME STRIP -->
+  <div class="outcome">
+    <div class="outcome-side bull">
+      <div class="outcome-icon">▲</div>
+      <div class="outcome-text">
+        <div class="outcome-label">Long Setup</div>
+        <div class="outcome-desc">HTF low swept → <b>bullish IFVG</b> on 1M → lower oscillator <b>turns green</b></div>
+      </div>
+    </div>
+    <div class="outcome-side bear">
+      <div class="outcome-icon">▼</div>
+      <div class="outcome-text">
+        <div class="outcome-label">Short Setup</div>
+        <div class="outcome-desc">HTF high swept → <b>bearish IFVG</b> on 1M → lower oscillator <b>turns red</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RISK ROW -->
+  <div class="risk-row">
+    <div class="risk-cell">
+      <div class="risk-key">Stop Loss</div>
+      <div class="risk-val">Beyond IFVG</div>
+    </div>
+    <div class="risk-cell">
+      <div class="risk-key">Min Target</div>
+      <div class="risk-val green">1 : 1 R</div>
+    </div>
+    <div class="risk-cell">
+      <div class="risk-key">Risk / Trade</div>
+      <div class="risk-val gold">1% Max</div>
+    </div>
+    <div class="risk-cell">
+      <div class="risk-key">Max Trades</div>
+      <div class="risk-val">3 / Day</div>
+    </div>
+    <div class="risk-cell">
+      <div class="risk-key">Kill Switch</div>
+      <div class="risk-val red">− 2R Stop</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">VIN THE TRADER</div>
+    <div class="footer-rule">All 3 gates must confirm · No exceptions</div>
+  </div>
+
+</div>
+
+</body>
+</html>
